@@ -1,0 +1,1412 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Shopimax — Luminarias y reflectores solares · Envíos a todo el Perú</title>
+<meta name="description" content="Importadora de iluminación y energía solar en Lima, Perú. Luminarias solares pastorales y postales, y reflectores solares de 100W a 1000W.">
+<style>
+/* ============================================================
+   SHOPIMAX — sistema visual
+   naranja #EE7723 · carbón #1C1C1C · noche #0D0D0E · papel #FFF
+   La luz es el material: la sección oscura es el catálogo,
+   y cada modelo brilla según su potencia.
+   ============================================================ */
+:root{
+  --naranja:#EE7723;
+  --ambar:#FFA94D;
+  --carbon:#1C1C1C;
+  --noche:#0D0D0E;
+  --noche-2:#141417;
+  --papel:#FFFFFF;
+  --bruma:#F4F4F2;
+  --gris:#6B6B6B;
+  --gris-noche:#A2A2A6;
+  --linea:#E4E4E1;
+  --linea-noche:#2B2B2F;
+
+  --sans:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --mono:ui-monospace,SFMono-Regular,"SF Mono",Menlo,Consolas,"Liberation Mono",monospace;
+
+  --ancho:1180px;
+  --pad:clamp(20px,5vw,56px);
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;
+  background:var(--papel);
+  color:var(--carbon);
+  font-family:var(--sans);
+  font-size:16px;
+  line-height:1.6;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;display:block}
+h1,h2,h3,p,ul,ol,dl,dd,figure,blockquote{margin:0}
+ul{padding:0;list-style:none}
+
+.envoltura{width:100%;max-width:var(--ancho);margin:0 auto;padding-left:var(--pad);padding-right:var(--pad)}
+
+/* --- tipografía compartida --- */
+.rotulo{
+  font-family:var(--mono);
+  font-size:.6875rem;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  line-height:1.4;
+  color:var(--gris);
+}
+.rotulo--noche{color:var(--naranja)}
+
+.titulo{
+  font-size:clamp(1.85rem,4.4vw,3rem);
+  line-height:1.06;
+  letter-spacing:-.032em;
+  font-weight:800;
+  max-width:19ch;
+}
+.bajada{
+  margin-top:16px;
+  max-width:56ch;
+  font-size:clamp(1rem,1.6vw,1.0625rem);
+  color:var(--gris);
+}
+.bajada--noche{color:var(--gris-noche)}
+
+/* --- señal hacia el chat (no es un botón: es una indicación) --- */
+.senal{
+  display:inline-flex;align-items:center;gap:10px;
+  font-family:var(--mono);font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;
+  padding:11px 18px;border-radius:999px;
+  border:1px solid var(--linea);
+  background:var(--bruma);
+  color:var(--carbon);
+}
+.senal__flecha{color:var(--naranja);font-size:1rem;line-height:1}
+.senal--noche{border-color:rgba(238,119,35,.42);background:rgba(238,119,35,.09);color:#fff}
+.senal--fuerte{border-color:transparent;background:var(--naranja);color:#fff}
+.senal--fuerte .senal__flecha{color:#fff}
+
+/* ============================================================
+   1. HERO — la luz cae desde arriba
+   ============================================================ */
+.hero{
+  position:relative;
+  background:var(--noche);
+  color:#fff;
+  overflow:hidden;
+  isolation:isolate;
+}
+/* La fuente de luz es el propio logo: de ahí cae el haz, en diagonal. */
+.haz{
+  position:absolute;inset:0;z-index:0;pointer-events:none;
+  --fx:20%;   /* centro del logo */
+  --fy:78px;
+}
+.haz__rayo,.haz__nucleo{position:absolute;inset:0}
+.haz__rayo{
+  background:conic-gradient(from 0deg at var(--fx) var(--fy),
+    rgba(238,119,35,0) 0deg 128deg,
+    rgba(255,178,110,.05) 138deg,
+    rgba(255,198,146,.21) 157deg,
+    rgba(255,182,116,.15) 178deg,
+    rgba(238,119,35,.04) 198deg,
+    rgba(238,119,35,0) 210deg 360deg);
+  -webkit-mask-image:radial-gradient(150% 145% at var(--fx) var(--fy),#000 3%,rgba(0,0,0,.8) 26%,rgba(0,0,0,.4) 58%,rgba(0,0,0,0) 96%);
+  mask-image:radial-gradient(150% 145% at var(--fx) var(--fy),#000 3%,rgba(0,0,0,.8) 26%,rgba(0,0,0,.4) 58%,rgba(0,0,0,0) 96%);
+}
+.haz__nucleo{
+  background:conic-gradient(from 0deg at var(--fx) var(--fy),
+    rgba(255,214,170,0) 0deg 148deg,
+    rgba(255,224,190,.17) 160deg,
+    rgba(255,214,170,0) 175deg 360deg);
+  -webkit-mask-image:radial-gradient(120% 115% at var(--fx) var(--fy),#000 2%,rgba(0,0,0,.5) 40%,rgba(0,0,0,0) 88%);
+  mask-image:radial-gradient(120% 115% at var(--fx) var(--fy),#000 2%,rgba(0,0,0,.5) 40%,rgba(0,0,0,0) 88%);
+}
+.haz__foco{
+  position:absolute;left:var(--fx);top:var(--fy);width:420px;height:420px;translate:-50% -50%;
+  background:radial-gradient(50% 50% at 50% 50%,rgba(255,196,140,.30),rgba(238,119,35,.07) 45%,rgba(238,119,35,0) 72%);
+}
+.haz__charco{
+  position:absolute;left:46%;bottom:-70px;width:min(1180px,150vw);height:300px;translate:-50% 0;
+  background:radial-gradient(50% 100% at 50% 100%,rgba(238,119,35,.20),rgba(238,119,35,.05) 44%,rgba(238,119,35,0) 74%);
+}
+
+.barra{
+  position:relative;z-index:2;
+  display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;
+  padding-top:22px;padding-bottom:22px;
+}
+.marca{
+  display:inline-block;background:#fff;border-radius:14px;padding:9px 14px;
+  box-shadow:0 0 0 1px rgba(255,255,255,.16),0 18px 54px -12px rgba(255,180,110,.75),0 0 90px -20px rgba(238,119,35,.9);
+}
+.marca img{width:104px;height:auto}
+.navegacion{display:flex;gap:clamp(14px,2.4vw,30px);flex-wrap:wrap}
+.navegacion a{
+  font-family:var(--mono);font-size:.6875rem;letter-spacing:.14em;text-transform:uppercase;
+  color:rgba(255,255,255,.72);text-decoration:none;padding:6px 0;border-bottom:1px solid transparent;
+}
+.navegacion a:hover,.navegacion a:focus-visible{color:#fff;border-bottom-color:var(--naranja)}
+
+.hero__cuerpo{
+  position:relative;z-index:2;
+  padding-top:clamp(56px,10vw,124px);
+  padding-bottom:clamp(56px,9vw,104px);
+}
+.hero__rotulo{
+  font-family:var(--mono);font-size:.6875rem;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--naranja);
+}
+.hero__titular{
+  margin-top:24px;
+  font-size:clamp(2.6rem,8.2vw,5.25rem);
+  line-height:.95;
+  letter-spacing:-.042em;
+  font-weight:800;
+  max-width:15ch;
+  color:#fff;
+}
+/* El titular está iluminado por el haz: brilla donde le da la luz. */
+@supports (-webkit-background-clip:text) or (background-clip:text){
+  .hero__titular{
+    background:linear-gradient(158deg,#fff 8%,#F7F1EA 34%,rgba(255,255,255,.66) 78%);
+    -webkit-background-clip:text;background-clip:text;
+    -webkit-text-fill-color:transparent;color:transparent;
+  }
+}
+.hero__titular em{font-style:normal}
+.hero__sub{
+  margin-top:26px;max-width:38ch;
+  font-size:clamp(1.0625rem,1.9vw,1.25rem);
+  color:rgba(255,255,255,.74);
+  text-wrap:pretty;
+}
+.hero__accion{margin-top:36px}
+
+.franja{
+  position:relative;z-index:2;
+  border-top:1px solid var(--linea-noche);
+  display:grid;grid-template-columns:repeat(3,1fr);
+}
+.franja li{
+  padding:20px 22px;
+  border-left:1px solid var(--linea-noche);
+  font-family:var(--mono);font-size:.6875rem;letter-spacing:.13em;text-transform:uppercase;
+  color:rgba(255,255,255,.82);
+  display:flex;align-items:center;gap:12px;
+}
+.franja li:first-child{border-left:0}
+.franja li::before{content:"";width:6px;height:6px;flex:0 0 6px;border-radius:50%;background:var(--naranja);box-shadow:0 0 12px rgba(238,119,35,.9)}
+
+/* ============================================================
+   2. FAMILIAS — el break claro
+   ============================================================ */
+.familias{padding:clamp(64px,10vw,120px) 0}
+.familias__intro{display:grid;gap:clamp(28px,4vw,48px)}
+@media (min-width:900px){
+  .familias__intro{grid-template-columns:1.05fr .95fr;align-items:end}
+}
+.rejilla-familias{
+  margin-top:clamp(36px,5vw,56px);
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+  border:1px solid var(--linea);border-right:0;border-bottom:0;
+}
+.familia{
+  background:var(--papel);padding:clamp(26px,3.4vw,40px);
+  border-right:1px solid var(--linea);border-bottom:1px solid var(--linea);
+}
+.familia__icono{color:var(--carbon)}
+.familia__icono svg{width:108px;height:108px}
+.familia h3{
+  margin-top:22px;
+  font-size:1.25rem;font-weight:800;letter-spacing:-.02em;
+}
+.familia__meta{
+  margin-top:8px;
+  font-family:var(--mono);font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;color:var(--naranja);
+}
+.familia p{margin-top:14px;color:var(--gris);font-size:.9375rem}
+
+.atributos{display:flex;flex-wrap:wrap;gap:9px}
+.atributos li{
+  font-family:var(--mono);font-size:.6875rem;letter-spacing:.11em;text-transform:uppercase;
+  padding:9px 14px;border:1px solid var(--linea);border-radius:999px;color:var(--carbon);
+}
+.atributos__nota{margin-top:16px;font-size:.875rem;color:var(--gris);max-width:46ch}
+
+/* ============================================================
+   3. CATÁLOGO — el tablero. Cada modelo brilla según su potencia.
+   ============================================================ */
+.catalogo{background:var(--noche);color:#fff;padding:clamp(64px,10vw,120px) 0}
+.catalogo .titulo{color:#fff}
+.catalogo__cabecera{display:grid;gap:24px}
+@media (min-width:900px){
+  .catalogo__cabecera{grid-template-columns:1.15fr .85fr;align-items:end}
+}
+.catalogo__aviso{
+  font-size:.9375rem;color:var(--gris-noche);border-left:2px solid var(--naranja);padding-left:16px;
+}
+
+.grupo{margin-top:clamp(44px,6vw,72px)}
+.grupo__titulo{
+  display:flex;align-items:baseline;justify-content:space-between;gap:16px;flex-wrap:wrap;
+  padding-bottom:14px;border-bottom:1px solid var(--linea-noche);
+}
+.grupo__titulo h3{
+  font-family:var(--mono);font-size:.8125rem;letter-spacing:.18em;text-transform:uppercase;color:#fff;font-weight:600;
+}
+.grupo__conteo{font-family:var(--mono);font-size:.6875rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gris-noche)}
+
+/* Bordes por celda (no gap sobre fondo): las celdas vacías de la última
+   fila quedan invisibles en vez de dibujar bloques grises. */
+.rejilla{
+  display:grid;grid-template-columns:repeat(auto-fill,minmax(196px,1fr));
+  border-left:1px solid var(--linea-noche);
+}
+.modelo{
+  position:relative;overflow:hidden;
+  background:var(--noche-2);
+  border-right:1px solid var(--linea-noche);
+  border-bottom:1px solid var(--linea-noche);
+  padding:24px 20px 20px;
+  display:flex;flex-direction:column;gap:12px;min-height:182px;
+}
+.modelo::before{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(64% 58% at 24% 26%,rgba(238,119,35,calc(var(--i) * .20)),rgba(238,119,35,0) 72%);
+}
+.modelo>*{position:relative}
+.modelo__potencia{
+  font-family:var(--mono);font-weight:700;
+  font-size:clamp(1.7rem,4.2vw,2.3rem);
+  line-height:1;letter-spacing:-.03em;
+  color:var(--naranja);
+  text-shadow:0 0 calc(var(--i) * 30px) rgba(238,119,35,calc(var(--i) * .8));
+  font-variant-numeric:tabular-nums;
+}
+.modelo__nombre{font-size:.9375rem;line-height:1.35;color:#fff;font-weight:600}
+.modelo__nombre span{display:block;font-weight:400;color:var(--gris-noche);font-size:.8125rem;margin-top:3px}
+/* Bloque de precio de altura fija: así la línea divisoria queda a la
+   misma altura en toda la fila, con o sin precio anterior. */
+.modelo__precio{
+  margin-top:auto;padding-top:13px;border-top:1px solid var(--linea-noche);
+  display:flex;flex-direction:column;align-items:flex-start;gap:2px;min-height:53px;
+  font-family:var(--mono);font-variant-numeric:tabular-nums;
+}
+.modelo__precio b{font-size:1rem;font-weight:700;color:#fff;letter-spacing:-.01em;line-height:1.25}
+.modelo__precio s{font-size:.6875rem;color:var(--gris-noche);text-decoration-thickness:1px}
+
+.lista{
+  display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));
+  border-left:1px solid var(--linea-noche);
+}
+.lista li{
+  background:var(--noche-2);
+  border-right:1px solid var(--linea-noche);
+  border-bottom:1px solid var(--linea-noche);
+  padding:16px 20px;
+  display:flex;align-items:baseline;justify-content:space-between;gap:16px;
+  font-size:.9375rem;
+}
+.lista__nombre{color:#fff;padding-right:8px}
+.lista__precio{
+  font-family:var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap;text-align:right;
+}
+.lista__precio b{display:block;font-weight:700;color:#fff;font-size:.875rem;line-height:1.3}
+.lista__precio s{display:block;font-size:.6875rem;color:var(--gris-noche)}
+
+.catalogo__cierre{
+  margin-top:clamp(36px,5vw,56px);
+  display:flex;align-items:center;gap:18px;flex-wrap:wrap;
+}
+
+/* ============================================================
+   4. FICHA TÉCNICA — el lado día
+   ============================================================ */
+.ficha{padding:clamp(64px,10vw,120px) 0;background:var(--papel)}
+
+.ciclo{margin-top:clamp(36px,5vw,52px)}
+.ciclo__barra{display:flex;height:76px;border:1px solid var(--linea);overflow:hidden}
+.ciclo__tramo{display:flex;align-items:center;padding:0 20px;position:relative}
+.ciclo__tramo--sol{
+  flex:0 0 34%;
+  background:linear-gradient(100deg,#FFD9A8,var(--naranja));
+  color:#3A1D06;
+}
+.ciclo__tramo--noche{
+  flex:1 1 66%;
+  background:var(--noche);
+  color:#fff;
+}
+.ciclo__tramo--noche::after{
+  content:"";position:absolute;left:0;right:0;bottom:0;height:2px;
+  background:linear-gradient(90deg,var(--naranja),rgba(238,119,35,.15));
+}
+.ciclo__dato{font-family:var(--mono);font-size:.75rem;letter-spacing:.13em;text-transform:uppercase;font-weight:700}
+.ciclo__pies{display:flex;margin-top:10px}
+.ciclo__pie{font-family:var(--mono);font-size:.6875rem;letter-spacing:.13em;text-transform:uppercase;color:var(--gris)}
+.ciclo__pie--sol{flex:0 0 34%}
+.ciclo__pie--noche{flex:1 1 66%}
+.ciclo__origen{margin-top:14px;font-size:.8125rem;color:var(--gris)}
+
+.rejilla-ficha{
+  margin-top:clamp(40px,5vw,60px);
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(310px,1fr));
+  gap:1px;background:var(--linea);border:1px solid var(--linea);
+}
+.hoja{background:var(--papel);padding:clamp(24px,3vw,34px)}
+.hoja__sku{font-family:var(--mono);font-size:.6875rem;letter-spacing:.12em;color:var(--gris);text-transform:uppercase}
+.hoja h3{margin-top:10px;font-size:1.125rem;font-weight:800;letter-spacing:-.015em;line-height:1.25}
+.hoja__precio{
+  margin-top:10px;font-family:var(--mono);font-weight:700;font-size:1rem;color:var(--carbon);
+  font-variant-numeric:tabular-nums;
+}
+.hoja dl{margin-top:22px;border-top:1px solid var(--linea)}
+.hoja div{
+  display:grid;grid-template-columns:minmax(96px,34%) 1fr;gap:14px;
+  padding:11px 0;border-bottom:1px solid var(--linea);
+}
+.hoja dt{
+  font-family:var(--mono);font-size:.6875rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gris);
+  line-height:1.5;padding-top:2px;
+}
+.hoja dd{font-size:.9375rem;line-height:1.5}
+.hoja__kit{margin-top:16px;font-size:.875rem;color:var(--gris)}
+.ficha__cierre{margin-top:clamp(32px,4vw,44px)}
+
+/* ============================================================
+   5. ENVÍOS + EMPRESA
+   ============================================================ */
+.envios{background:var(--bruma);padding:clamp(64px,10vw,120px) 0;border-top:1px solid var(--linea)}
+.envios__caja{display:grid;gap:clamp(32px,5vw,56px)}
+@media (min-width:900px){.envios__caja{grid-template-columns:1fr 1fr;align-items:start}}
+.couriers{
+  margin-top:26px;display:grid;grid-template-columns:repeat(2,1fr);
+  border-top:1px solid var(--linea);border-left:1px solid var(--linea);
+}
+.couriers li{
+  background:var(--papel);padding:22px 18px;text-align:center;
+  border-right:1px solid var(--linea);border-bottom:1px solid var(--linea);
+  font-family:var(--mono);font-size:.875rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+}
+.envios__nota{margin-top:18px;font-size:.875rem;color:var(--gris)}
+
+.cita{
+  font-size:clamp(1.0625rem,2vw,1.25rem);line-height:1.5;letter-spacing:-.012em;
+  border-left:2px solid var(--naranja);padding-left:20px;text-wrap:pretty;
+}
+.datos{margin-top:26px;border-top:1px solid var(--linea)}
+.datos div{
+  display:grid;grid-template-columns:minmax(110px,30%) 1fr;gap:14px;
+  padding:12px 0;border-bottom:1px solid var(--linea);
+}
+.datos dt{font-family:var(--mono);font-size:.6875rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gris);padding-top:2px}
+.datos dd{font-size:.9375rem}
+
+/* ============================================================
+   6. PIE
+   ============================================================ */
+.pie{background:var(--noche);color:#fff;padding-top:clamp(48px,7vw,72px);padding-bottom:150px}
+.pie__caja{display:flex;justify-content:space-between;gap:32px;flex-wrap:wrap;align-items:flex-start}
+.pie .marca{box-shadow:0 0 0 1px rgba(255,255,255,.12)}
+.pie .marca img{width:92px}
+.pie__lugar{margin-top:16px;font-family:var(--mono);font-size:.6875rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gris-noche)}
+.pie__redes{display:grid;gap:8px;font-family:var(--mono);font-size:.75rem;color:var(--gris-noche);letter-spacing:.04em}
+.pie__redes b{color:#fff;font-weight:400}
+.pie__cierre{
+  margin-top:clamp(36px,5vw,52px);padding-top:22px;border-top:1px solid var(--linea-noche);
+  font-size:.9375rem;color:var(--gris-noche);max-width:52ch;
+}
+
+/* --- accesibilidad --- */
+a:focus-visible,.senal:focus-visible{outline:2px solid var(--naranja);outline-offset:3px;border-radius:4px}
+
+/* --- entrada de la luz --- */
+@media (prefers-reduced-motion:no-preference){
+  html{scroll-behavior:smooth}
+  .haz{transform-origin:top center;animation:encender 1200ms cubic-bezier(.16,.8,.3,1) both}
+  .haz__foco{animation:aparecer 900ms 120ms ease-out both}
+  .haz__charco{animation:aparecer 1200ms 320ms ease-out both}
+  .hero__rotulo{animation:subir 700ms 160ms ease-out both}
+  .hero__titular{animation:subir 800ms 240ms ease-out both}
+  .hero__sub{animation:subir 800ms 360ms ease-out both}
+  .hero__accion{animation:subir 800ms 460ms ease-out both}
+  .franja li{animation:subir 700ms 580ms ease-out both}
+  @keyframes encender{from{opacity:0;transform:scaleY(.7)}to{opacity:1;transform:none}}
+  @keyframes aparecer{from{opacity:0}to{opacity:1}}
+  @keyframes subir{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+}
+
+/* --- móvil --- */
+@media (max-width:640px){
+  .franja{grid-template-columns:1fr}
+  .franja li{border-left:0;border-top:1px solid var(--linea-noche);padding:15px 0}
+  .franja li:first-child{border-top:0}
+  .hero__cuerpo{padding-top:52px;padding-bottom:64px}
+  /* El rótulo es mono + tracking ancho: a 390px se pasaba del viewport y el
+     overflow:hidden del hero se comía "Perú". Achicar el tracking lo mete en
+     una línea; white-space:normal es la red por si el texto crece. */
+  .hero__rotulo{font-size:.625rem;letter-spacing:.1em;white-space:normal}
+  .navegacion{gap:13px}
+  .navegacion a{font-size:.625rem;letter-spacing:.1em}
+  /* El haz se abre más: en pantalla angosta un cono estrecho no se ve. */
+  .haz{--fx:28%;--fy:70px}
+  .haz__rayo{
+    background:conic-gradient(from 0deg at var(--fx) var(--fy),
+      rgba(238,119,35,0) 0deg 118deg,
+      rgba(255,178,110,.06) 130deg,
+      rgba(255,198,146,.20) 158deg,
+      rgba(255,182,116,.13) 186deg,
+      rgba(238,119,35,0) 216deg 360deg);
+  }
+  .haz__foco{width:300px;height:300px}
+  /* Dos columnas: el catálogo se lee como catálogo, no como lista infinita. */
+  .rejilla{grid-template-columns:repeat(2,1fr)}
+  .modelo{min-height:0;padding:18px 14px 16px;gap:10px}
+  .modelo__precio{min-height:48px;padding-top:11px}
+  .lista{grid-template-columns:1fr}
+  .hoja div{grid-template-columns:1fr;gap:3px}
+  .datos div{grid-template-columns:1fr;gap:3px}
+  .ciclo__barra{height:66px}
+  .ciclo__tramo{padding:0 14px}
+  .ciclo__dato{font-size:.625rem;letter-spacing:.08em}
+  .couriers li{padding:18px 10px;font-size:.75rem}
+  .pie__caja{gap:24px}
+}
+</style>
+</head>
+<body>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="haz" aria-hidden="true">
+    <span class="haz__rayo"></span>
+    <span class="haz__nucleo"></span>
+    <span class="haz__foco"></span>
+    <span class="haz__charco"></span>
+  </div>
+
+  <div class="envoltura">
+    <header class="barra">
+      <span class="marca"><img src="./assets/logo.png" width="104" height="104" alt="Shopimax"></span>
+      <nav class="navegacion" aria-label="Secciones">
+        <a href="#catalogo">Catálogo</a>
+        <a href="#ficha">Ficha técnica</a>
+        <a href="#envios">Envíos</a>
+        <a href="#empresa">La empresa</a>
+      </nav>
+    </header>
+  </div>
+
+  <div class="envoltura hero__cuerpo">
+    <p class="hero__rotulo">Grupo CEPSAC · RUC 20603403771 · Lima, Perú</p>
+    <h1 class="hero__titular">Iluminamos tu<br><em>hogar y negocio.</em></h1>
+    <p class="hero__sub">Luminarias y reflectores solares para hogares, negocios e industrias.</p>
+    <p class="hero__accion">
+      <span class="senal senal--noche">Precio y stock, en el chat <span class="senal__flecha" aria-hidden="true">↘</span></span>
+    </p>
+  </div>
+
+  <div class="envoltura">
+    <ul class="franja">
+      <li>Envíos a todo el Perú</li>
+      <li>Importadora de luminaria solar</li>
+      <li>Asesoría personalizada para tu compra</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ FAMILIAS ============ -->
+<section class="familias">
+  <div class="envoltura">
+    <div class="familias__intro">
+      <div>
+        <p class="rotulo">Qué importamos</p>
+        <h2 class="titulo" style="margin-top:14px">Dos familias de luz que no dependen del cable.</h2>
+        <p class="bajada">Las luminarias y los reflectores solares funcionan con panel y batería propios: se cargan de día y alumbran de noche, sin instalación eléctrica.</p>
+      </div>
+      <div>
+        <ul class="atributos">
+          <li>IP66 · IP67</li>
+          <li>Resistente a las lluvias</li>
+          <li>Sensor de movimiento</li>
+          <li>Encendido automático</li>
+          <li>Sin cables</li>
+          <li>Hasta 12 horas continuas</li>
+        </ul>
+        <p class="atributos__nota">Son los atributos que publicamos en nuestra línea de iluminación solar. Confirma en el chat cuáles trae el modelo que te interesa.</p>
+      </div>
+    </div>
+
+    <div class="rejilla-familias">
+      <article class="familia">
+        <div class="familia__icono" aria-hidden="true">
+          <svg viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M31 112V46"/>
+            <path d="M31 46c0-9 5-14 15-14h18"/>
+            <path d="M63 27h37l-6 19H57z" fill="none"/>
+            <path d="M43 21l45-9 3 11-45 9z"/>
+            <path d="M22 112h18"/>
+            <g stroke="#EE7723">
+              <path d="M65 55v9"/><path d="M78 55v13"/><path d="M91 55v9"/>
+            </g>
+          </svg>
+        </div>
+        <h3>Luminarias solares</h3>
+        <p class="familia__meta">10 modelos · 300W – 3000W</p>
+        <p>Van sobre poste, en versión pastoral y postal. El kit de la Pastoral 2500W KN1 incluye poste tubular, tornillos, base de anclaje, control remoto, pilas e instrucciones.</p>
+      </article>
+
+      <article class="familia">
+        <div class="familia__icono" aria-hidden="true">
+          <svg viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 26l60-13 5 14-60 13z"/>
+            <path d="M56 40v10"/>
+            <path d="M28 50h64v26H28z"/>
+            <path d="M28 68h64"/>
+            <g stroke="#EE7723">
+              <path d="M42 84l-8 16"/><path d="M60 84v18"/><path d="M78 84l8 16"/>
+            </g>
+          </svg>
+        </div>
+        <h3>Reflectores solares</h3>
+        <p class="familia__meta">10 modelos · 100W – 1000W</p>
+        <p>Formato proyector para fachadas, patios y áreas de trabajo, con una versión impermeable de 200W dentro de la línea.</p>
+      </article>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============ CATÁLOGO ============ -->
+<section class="catalogo" id="catalogo">
+  <div class="envoltura">
+    <div class="catalogo__cabecera">
+      <div>
+        <p class="rotulo rotulo--noche">Catálogo</p>
+        <h2 class="titulo" style="margin-top:14px">Ordenado por potencia.</h2>
+      </div>
+      <p class="catalogo__aviso">Precios de referencia. El asistente confirma el precio vigente, la disponibilidad y qué modelo te conviene según dónde lo vas a instalar.</p>
+    </div>
+
+    <!-- Luminarias -->
+    <div class="grupo">
+      <div class="grupo__titulo">
+        <h3 id="g-luminarias">Luminarias solares</h3>
+        <span class="grupo__conteo">10 modelos</span>
+      </div>
+      <ul class="rejilla" aria-labelledby="g-luminarias">
+        <li class="modelo" style="--i:1">
+          <p class="modelo__potencia">3000W</p>
+          <p class="modelo__nombre">Luminaria pastoral<span>Wubwa 2</span></p>
+          <p class="modelo__precio"><b>S/. 359.00</b></p>
+        </li>
+        <li class="modelo" style="--i:.88">
+          <p class="modelo__potencia">2500W</p>
+          <p class="modelo__nombre">Luminaria pastoral<span>KN1</span></p>
+          <p class="modelo__precio"><b>S/. 299.00</b> <s>S/. 379.00</s></p>
+        </li>
+        <li class="modelo" style="--i:.6">
+          <p class="modelo__potencia">1000W</p>
+          <p class="modelo__nombre">Luminaria postal<span>Cafini</span></p>
+          <p class="modelo__precio"><b>S/. 429.00</b> <s>S/. 479.00</s></p>
+        </li>
+        <li class="modelo" style="--i:.6">
+          <p class="modelo__potencia">1000W</p>
+          <p class="modelo__nombre">Luminaria pastoral<span>Wubwa 3</span></p>
+          <p class="modelo__precio"><b>S/. 219.00</b></p>
+        </li>
+        <li class="modelo" style="--i:.48">
+          <p class="modelo__potencia">600W</p>
+          <p class="modelo__nombre">Luminaria pastoral<span>Schnickle</span></p>
+          <p class="modelo__precio"><b>S/. 359.00</b> <s>S/. 399.00</s></p>
+        </li>
+        <li class="modelo" style="--i:.42">
+          <p class="modelo__potencia">500W</p>
+          <p class="modelo__nombre">Luminaria pastoral<span>Cafini</span></p>
+          <p class="modelo__precio"><b>S/. 399.00</b> <s>S/. 449.00</s></p>
+        </li>
+        <li class="modelo" style="--i:.36">
+          <p class="modelo__potencia">400W</p>
+          <p class="modelo__nombre">Luminaria pastoral<span>Cafini</span></p>
+          <p class="modelo__precio"><b>S/. 299.00</b> <s>S/. 389.00</s></p>
+        </li>
+        <li class="modelo" style="--i:.36">
+          <p class="modelo__potencia">400W</p>
+          <p class="modelo__nombre">Luminaria postal<span>Cafini</span></p>
+          <p class="modelo__precio"><b>S/. 299.00</b> <s>S/. 399.00</s></p>
+        </li>
+        <li class="modelo" style="--i:.3">
+          <p class="modelo__potencia">300W</p>
+          <p class="modelo__nombre">Luminaria pastoral<span>Alta Luz</span></p>
+          <p class="modelo__precio"><b>S/. 329.00</b> <s>S/. 389.00</s></p>
+        </li>
+        <li class="modelo" style="--i:.3">
+          <p class="modelo__potencia">300W</p>
+          <p class="modelo__nombre">Luminaria pastoral<span>Schnickle</span></p>
+          <p class="modelo__precio"><b>S/. 319.00</b> <s>S/. 399.00</s></p>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Reflectores -->
+    <div class="grupo">
+      <div class="grupo__titulo">
+        <h3 id="g-reflectores">Reflectores solares</h3>
+        <span class="grupo__conteo">10 modelos</span>
+      </div>
+      <ul class="rejilla" aria-labelledby="g-reflectores">
+        <li class="modelo" style="--i:1">
+          <p class="modelo__potencia">1000W</p>
+          <p class="modelo__nombre">Reflector solar<span>Pink Markt</span></p>
+          <p class="modelo__precio"><b>S/. 599.00</b> <s>S/. 649.00</s></p>
+        </li>
+        <li class="modelo" style="--i:.82">
+          <p class="modelo__potencia">800W</p>
+          <p class="modelo__nombre">Reflector solar<span>Pink Markt</span></p>
+          <p class="modelo__precio"><b>S/. 449.00</b> <s>S/. 599.00</s></p>
+        </li>
+        <li class="modelo" style="--i:.66">
+          <p class="modelo__potencia">600W</p>
+          <p class="modelo__nombre">Reflector solar<span>Luzpe</span></p>
+          <p class="modelo__precio"><b>S/. 349.00</b> <s>S/. 449.00</s></p>
+        </li>
+        <li class="modelo" style="--i:.56">
+          <p class="modelo__potencia">500W</p>
+          <p class="modelo__nombre">Reflector solar<span>Cafini</span></p>
+          <p class="modelo__precio"><b>S/. 299.00</b> <s>S/. 399.00</s></p>
+        </li>
+        <li class="modelo" style="--i:.46">
+          <p class="modelo__potencia">400W</p>
+          <p class="modelo__nombre">Reflector solar<span>Pink Markt</span></p>
+          <p class="modelo__precio"><b>S/. 249.00</b> <s>S/. 349.00</s></p>
+        </li>
+        <li class="modelo" style="--i:.36">
+          <p class="modelo__potencia">300W</p>
+          <p class="modelo__nombre">Reflector solar<span>Cubull</span></p>
+          <p class="modelo__precio"><b>S/. 199.00</b> <s>S/. 269.00</s></p>
+        </li>
+        <li class="modelo" style="--i:.28">
+          <p class="modelo__potencia">200W</p>
+          <p class="modelo__nombre">Reflector solar<span>Impermeable</span></p>
+          <p class="modelo__precio"><b>S/. 179.00</b> <s>S/. 239.00</s></p>
+        </li>
+        <li class="modelo" style="--i:.28">
+          <p class="modelo__potencia">200W</p>
+          <p class="modelo__nombre">Reflector solar<span>Alta Luz</span></p>
+          <p class="modelo__precio"><b>S/. 159.00</b> <s>S/. 189.00</s></p>
+        </li>
+        <li class="modelo" style="--i:.28">
+          <p class="modelo__potencia">200W</p>
+          <p class="modelo__nombre">Reflector solar<span>Cubull</span></p>
+          <p class="modelo__precio"><b>S/. 159.00</b> <s>S/. 209.00</s></p>
+        </li>
+        <li class="modelo" style="--i:.2">
+          <p class="modelo__potencia">100W</p>
+          <p class="modelo__nombre">Reflector solar<span>Cubull</span></p>
+          <p class="modelo__precio"><b>S/. 149.00</b> <s>S/. 189.00</s></p>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Otros -->
+    <div class="grupo">
+      <div class="grupo__titulo">
+        <h3 id="g-otros">Otros equipos</h3>
+        <span class="grupo__conteo">12 modelos</span>
+      </div>
+      <ul class="lista" aria-labelledby="g-otros">
+        <li><span class="lista__nombre">Cámara solar IP de videovigilancia</span><span class="lista__precio"><b>S/. 299.00</b></span></li>
+        <li><span class="lista__nombre">Ventilador solar 6 en 1</span><span class="lista__precio"><b>S/. 199.00</b> <s>S/. 249.00</s></span></li>
+        <li><span class="lista__nombre">Foco plafón solar para interior</span><span class="lista__precio"><b>S/. 179.00</b> <s>S/. 259.00</s></span></li>
+        <li><span class="lista__nombre">Guirnalda solar</span><span class="lista__precio"><b>S/. 169.00</b> <s>S/. 219.00</s></span></li>
+        <li><span class="lista__nombre">Generador de energía solar 2.5W Cafini</span><span class="lista__precio"><b>S/. 129.00</b> <s>S/. 199.00</s></span></li>
+        <li><span class="lista__nombre">Lámpara solar T1</span><span class="lista__precio"><b>S/. 79.00</b> <s>S/. 110.00</s></span></li>
+        <li><span class="lista__nombre">Foco solar tipo cámara Electricity</span><span class="lista__precio"><b>S/. 49.00</b> <s>S/. 79.00</s></span></li>
+        <li><span class="lista__nombre">Linterna martillo LED 3W</span><span class="lista__precio"><b>S/. 49.00</b> <s>S/. 59.00</s></span></li>
+        <li><span class="lista__nombre">Lámpara solar para exteriores F1</span><span class="lista__precio"><b>S/. 39.00</b> <s>S/. 59.00</s></span></li>
+        <li><span class="lista__nombre">Lámpara solar para exteriores F2</span><span class="lista__precio"><b>S/. 39.00</b> <s>S/. 59.00</s></span></li>
+        <li><span class="lista__nombre">Mini linterna llavero multiuso</span><span class="lista__precio"><b>S/. 29.00</b> <s>S/. 49.00</s></span></li>
+        <li><span class="lista__nombre">Reflector eléctrico LED ultra delgado</span><span class="lista__precio"><b>S/. 10.00</b></span></li>
+      </ul>
+    </div>
+
+    <p class="catalogo__cierre">
+      <span class="senal senal--fuerte">Pregúntale al asistente <span class="senal__flecha" aria-hidden="true">↘</span></span>
+      <span class="rotulo" style="color:var(--gris-noche)">Está abajo a la derecha</span>
+    </p>
+  </div>
+</section>
+
+<!-- ============ FICHA TÉCNICA ============ -->
+<section class="ficha" id="ficha">
+  <div class="envoltura">
+    <p class="rotulo">Ficha técnica</p>
+    <h2 class="titulo" style="margin-top:14px">Carga de día. Alumbra de noche.</h2>
+    <p class="bajada">Ese es todo el mecanismo: el panel llena la batería mientras hay sol y la luminaria trabaja cuando cae la noche. Sin recibo de luz de por medio.</p>
+
+    <div class="ciclo">
+      <div class="ciclo__barra">
+        <div class="ciclo__tramo ciclo__tramo--sol"><span class="ciclo__dato">Carga 4 – 6 h</span></div>
+        <div class="ciclo__tramo ciclo__tramo--noche"><span class="ciclo__dato">Trabajo 12 h</span></div>
+      </div>
+      <div class="ciclo__pies">
+        <span class="ciclo__pie ciclo__pie--sol">Sol</span>
+        <span class="ciclo__pie ciclo__pie--noche">Noche</span>
+      </div>
+      <p class="ciclo__origen">Ciclo declarado en la ficha de la Luminaria Pastoral 2500W KN1. Cada modelo tiene el suyo.</p>
+    </div>
+
+    <div class="rejilla-ficha">
+      <article class="hoja">
+        <p class="hoja__sku">SKU GCE-ISLP-TY12761</p>
+        <h3>Luminaria Pastoral 2500W KN1</h3>
+        <p class="hoja__precio">S/. 299.00 <s style="color:var(--gris);font-weight:400;font-size:.8125rem">S/. 379.00</s></p>
+        <dl>
+          <div><dt>Luz</dt><dd>Blanca, ángulo de 180°</dd></div>
+          <div><dt>Controles</dt><dd>Sensor de luz, sensor de movimiento y control remoto</dd></div>
+          <div><dt>Sensor</dt><dd>Detecta hasta 5 metros y 140 grados</dd></div>
+          <div><dt>Ciclo</dt><dd>Carga de 4 a 6 horas · trabajo 12 horas</dd></div>
+          <div><dt>Protección</dt><dd>IP66</dd></div>
+          <div><dt>Batería</dt><dd>Litio 3,2 V · 60000 mAh</dd></div>
+          <div><dt>Panel</dt><dd>6 V</dd></div>
+        </dl>
+        <p class="hoja__kit">Incluye: reflector de calle solar, poste tubular, tornillos, control remoto, instrucciones, pilas y base de anclaje.</p>
+      </article>
+
+      <article class="hoja">
+        <p class="hoja__sku">SKU GCE-ISLP-SC300W</p>
+        <h3>Luminaria Pastoral 300W Schnickle</h3>
+        <p class="hoja__precio">S/. 319.00 <s style="color:var(--gris);font-weight:400;font-size:.8125rem">S/. 399.00</s></p>
+        <dl>
+          <div><dt>Luz</dt><dd>170 LED súper brillante, ángulo de 360°</dd></div>
+          <div><dt>Controles</dt><dd>Control de luz, control remoto y control de tiempo</dd></div>
+          <div><dt>Cuerpo</dt><dd>ABS</dd></div>
+          <div><dt>Ciclo</dt><dd>Carga de 5 a 7 horas · iluminación de 12 a 14 horas</dd></div>
+          <div><dt>Instalación</dt><dd>Altura sugerida de 4 a 7 metros</dd></div>
+          <div><dt>Batería</dt><dd>3,2 V · 15 Ah</dd></div>
+          <div><dt>Panel</dt><dd>Polisilicio 6 V / 18 W</dd></div>
+        </dl>
+        <p class="hoja__kit">El control remoto usa 2 pilas AAA, no incluidas.</p>
+      </article>
+    </div>
+
+    <p class="ficha__cierre">
+      <span class="senal">Otra ficha técnica, en el chat <span class="senal__flecha" aria-hidden="true">↘</span></span>
+    </p>
+  </div>
+</section>
+
+<!-- ============ ENVÍOS + EMPRESA ============ -->
+<section class="envios" id="envios">
+  <div class="envoltura envios__caja">
+    <div>
+      <p class="rotulo">Envíos</p>
+      <h2 class="titulo" style="margin-top:14px">Envíos a todo el Perú.</h2>
+      <p class="bajada">Despachamos por agencia de transporte. Estas son las empresas asociadas con las que trabajamos:</p>
+      <ul class="couriers">
+        <li>Olva</li>
+        <li>Shalom</li>
+        <li>Marvisur</li>
+        <li>Móvil Bus</li>
+      </ul>
+      <p class="envios__nota">Consulta en el chat la cobertura hacia tu ciudad y cómo llega tu pedido.</p>
+    </div>
+
+    <div id="empresa">
+      <p class="rotulo">La empresa</p>
+      <blockquote class="cita" style="margin-top:16px">Somos una empresa enfocada en soluciones de iluminación y energía solar, comprometida en transformar espacios y optimizar el consumo energético de hogares, negocios e industrias.</blockquote>
+      <dl class="datos">
+        <div><dt>Razón social</dt><dd>Grupo Comercio Electrónico Perú SAC</dd></div>
+        <div><dt>RUC</dt><dd>20603403771</dd></div>
+        <div><dt>Ciudad</dt><dd>Lima, Perú</dd></div>
+        <div><dt>Rubro</dt><dd>Importadora de iluminación y energía solar</dd></div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PIE ============ -->
+<footer class="pie">
+  <div class="envoltura">
+    <div class="pie__caja">
+      <div>
+        <span class="marca"><img src="./assets/logo.png" width="92" height="92" alt="Shopimax"></span>
+        <p class="pie__lugar">Lima, Perú</p>
+      </div>
+      <div class="pie__redes">
+        <span>Facebook <b>/shopimaxecommerce</b></span>
+        <span>Instagram <b>@shopimaxcenter</b></span>
+        <span>TikTok <b>@shopimaxcenter</b></span>
+      </div>
+    </div>
+    <p class="pie__cierre">Precio, stock, ficha técnica y asesoría: el asistente responde en el chat, abajo a la derecha.</p>
+  </div>
+</footer>
+
+  <div data-ijv-demo-badge style="position:relative;z-index:1;padding:14px 16px 90px;text-align:center;font:400 12px/1.5 system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;color:#94a3b8;background:#0f172a">
+    Demo preparada por <a href="https://ijvagency.com/" target="_blank" rel="noopener noreferrer" style="color:#cbd5e1;text-decoration:underline">IJV Agency</a> para Shopimax — sitio de muestra, no es la web oficial.
+  </div>
+  <script>
+window["shopimaxAgentConfig"] = Object.assign(window["shopimaxAgentConfig"] || {}, { webhook: "https://meta.ijvagency.com/webhook/shopimax-demo-agent", leadsWebhook: "https://meta.ijvagency.com/webhook/shopimax-demo-leads" });
+/* ============================================================================
+ * SHOPIMAX — Widget de chat embebible (IJV Agency)
+ * ----------------------------------------------------------------------------
+ * Generado por IJV Factory — NO editar a mano: cambios van al factory.config.json
+ * y se regenera. Patrón canónico extraído de mmdent/widget/agent.js.
+ *
+ * Distribución recomendada vía jsDelivr (repo público):
+ *   https://cdn.jsdelivr.net/gh/nachojr2003/shopimax-site@main/widget/agent.js
+ *
+ * Uso en el sitio del cliente:
+ *   <script>
+ *     window.shopimaxAgentConfig = { }; // overrides opcionales — los defaults van embebidos
+ *   <\/script>
+ *   <script src=".../widget/agent.js" defer><\/script>
+ *
+ * Sin dependencias externas. IIFE puro, vanilla JS (ES5).
+ * ============================================================================ */
+(function () {
+  'use strict';
+
+  /* ---------------- Config con DEFAULTS embebidos (regla #11: si el
+   * integrador pasa config parcial, NADA queda undefined) ---------------- */
+  var DEFAULTS = {
+    n8nBase:        "https://meta.ijvagency.com",
+    webhook:        null,
+    leadsWebhook:   null,
+    privacyUrl:     '/politica-privacidad',
+    logoUrl:        "https://shopimax-demo.vercel.app/logo.png",
+    primary:        '#EE7723',
+    secondary:      '#1C1C1C',
+    accent:         '#F5F5F5',
+    fontFamily:     "Inter,system-ui,-apple-system,'Segoe UI',sans-serif,'Segoe UI Emoji','Apple Color Emoji','Noto Color Emoji'",
+    timeoutMs:      45000,   /* >= 30s: queries con RAG completo cortan a 15s (regla #10).
+                              * 45000 y no 40000: la espera real que ve el usuario es
+                              * timeoutMs × (1 + maxRetries), así que el knob que importa
+                              * es maxRetries. Un turno vivo nunca llega a 40s (RAG p99
+                              * ~10s + self-call del retry-on-empty ~5s, regla #84): entre
+                              * 40 y 45 solo cambia cuánto tarda en rendirse lo ya muerto. */
+    maxRetries:     1,
+    typewriter:     true,
+    typewriterCps:  90,
+    agentName:      "el asistente de IA",
+    clientName:     "Shopimax",
+    /* Subtítulo del encabezado: dice a QUÉ ATIENDE el agente, nunca qué es. Una
+     * etiqueta de bot aquí lo delata antes de que escriba una palabra (regla
+     * #114). Se personaliza con `agente.subtitulo_widget` en el config. */
+    headerSubtitle: "Atención al cliente",
+
+
+    welcomeMessage: "Hola, soy el asistente de Shopimax. Te digo precios, especificaciones y cómo llega tu pedido: somos importadora de iluminación y energía solar con envíos a todo el Perú. ¿Qué estás buscando iluminar?"
+  };
+  var CFG = window.shopimaxAgentConfig = window.shopimaxAgentConfig || {};
+  for (var k in DEFAULTS) { if (CFG[k] === undefined || CFG[k] === null) CFG[k] = DEFAULTS[k]; }
+  if (!CFG.webhook)      CFG.webhook      = CFG.n8nBase + '/webhook/shopimax-agent';
+  if (!CFG.leadsWebhook) CFG.leadsWebhook = CFG.n8nBase + '/webhook/shopimax-leads';
+
+  var QUICK_BUTTONS = [];
+
+  /* ---------------- Utilidades ---------------- */
+  function escapeHtml(s) {
+    return String(s == null ? '' : s)
+      .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+  }
+  function parseMd(text) {
+    var s = escapeHtml(text);
+    s = s.replace(/```([\s\S]*?)```/g, function (_, c) { return '<pre>' + c + '</pre>'; });
+    s = s.replace(/`([^`]+)`/g, '<code>$1</code>');
+    s = s.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
+    s = s.replace(/(^|[^*])\*([^*\n]+)\*/g, '$1<em>$2</em>');
+    s = s.replace(/\[([^\]]+)\]\((https?:[^)]+)\)/g,
+      '<a href="$2" target="_blank" rel="noopener">$1</a>');
+    s = s.replace(/(^|\s)(https?:\/\/[^\s<]+)/g,
+      '$1<a href="$2" target="_blank" rel="noopener">$2</a>');
+    s = s.replace(/(^|\n)- (.+)/g, '$1<li>$2</li>');
+    s = s.replace(/(<li>[\s\S]*?<\/li>)(?!\s*<li>)/g, '<ul>$1</ul>');
+    /* Regla #27: strip de placeholders alucinados por el LLM.
+       Restringido a placeholders CONOCIDOS: un strip genérico \[[a-z_]+\]
+       borraba texto legítimo entre corchetes (ej. "[PDF]", "[borrador]"). */
+    s = s.replace(/\{\{[^}]+\}\}/g, '').replace(/\{first_name\}/gi, '')
+      .replace(/\[(nombre|name|first_name|usuario|user)\]/gi, '');
+    /* Segunda capa: MARCAS INTERNAS del sistema. El nodo Finalize del workflow ya
+       las strippea; esto es la red por si un turno las deja pasar — el usuario
+       jamás debe leer "[CONSENT_OK]" ni "[PENDIENTE CLIENTE: precio]".
+       Lista EXPLÍCITA a propósito: un \[[A-Z_]{3,}\] genérico borraría texto
+       legítimo del negocio ("[PDF]", "[IVA]", "[RUC]") — misma lección que el
+       strip de placeholders de arriba (regla #27). Marca nueva en un workflow
+       ⇒ agregarla también aquí. */
+    s = s.replace(/\[\/?(CONSENT_OK|CONSENT|HANDOFF|ESCALATED|ESCALAR|LEAD_OK|NO_KB|IMG:[^\]]*|PENDIENTE[^\]]*)\]/gi, '');
+    s = s.replace(/\n{2,}/g, '</p><p>').replace(/\n/g, '<br>');
+    return '<p>' + s + '</p>';
+  }
+  function uuid() {
+    return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+      var r = Math.random() * 16 | 0, v = c === 'x' ? r : (r & 0x3 | 0x8);
+      return v.toString(16);
+    });
+  }
+
+  /* Regla #61: TTL de inactividad — Cmd+Shift+R NO limpia sessionStorage; sin
+   * TTL la Simple Memory del agente arrastra la conversación vieja. */
+  var SESSION_TTL_MS = 30 * 60 * 1000;
+  var SS_PREFIX = 'shopimax_';
+  function getSessionId() {
+    var s = sessionStorage.getItem(SS_PREFIX + 'session_id');
+    var last = parseInt(sessionStorage.getItem(SS_PREFIX + 'session_last') || '0', 10);
+    var now = Date.now();
+    if (!s || (last && (now - last) > SESSION_TTL_MS)) {
+      s = uuid();
+      sessionStorage.setItem(SS_PREFIX + 'session_id', s);
+      sessionStorage.removeItem(SS_PREFIX + 'messages');
+    }
+    sessionStorage.setItem(SS_PREFIX + 'session_last', String(now));
+    return s;
+  }
+  function resetSession() {
+    sessionStorage.removeItem(SS_PREFIX + 'session_id');
+    sessionStorage.removeItem(SS_PREFIX + 'session_last');
+    sessionStorage.removeItem(SS_PREFIX + 'messages');
+    return getSessionId();
+  }
+
+  /* Persistencia de mensajes: sobreviven al refresh, no al cerrar la pestaña */
+  function loadMessages() {
+    try { return JSON.parse(sessionStorage.getItem(SS_PREFIX + 'messages') || '[]'); }
+    catch (e) { return []; }
+  }
+  function saveMessage(role, text) {
+    try {
+      var m = loadMessages();
+      m.push({ role: role, text: text });
+      if (m.length > 60) m = m.slice(-60);
+      sessionStorage.setItem(SS_PREFIX + 'messages', JSON.stringify(m));
+    } catch (e) { /* quota: silencioso */ }
+  }
+
+  /* ---------------- CSS inyectado ----------------
+   * Regla #15: CSS defensivo para <img> (librerías emoji del sitio convierten
+   * unicode a <img>; sin esto un 👋 sale de 600px) + fuentes emoji en la pila. */
+  var CSS = [
+    ':root{--ijv-primary:' + CFG.primary + ';--ijv-secondary:' + CFG.secondary + ';--ijv-accent:' + CFG.accent + ';}',
+    '.ijv-launcher{position:fixed;bottom:22px;right:22px;height:60px;padding:0 22px;border-radius:30px;background:#fff;color:var(--ijv-primary);border:0;cursor:pointer;box-shadow:0 10px 30px rgba(0,0,0,.28);display:flex;align-items:center;justify-content:center;z-index:2147483000;transition:transform .2s ease}',
+    '.ijv-launcher:hover{transform:scale(1.05)}',
+    '.ijv-launcher img{height:36px;width:auto;display:block;object-fit:contain}',
+    '.ijv-root *,.ijv-root *::before,.ijv-root *::after{box-sizing:border-box}',
+    '.ijv-root{position:fixed;bottom:100px;right:22px;width:380px;max-width:calc(100vw - 24px);height:600px;max-height:calc(100vh - 120px);background:#fff;border-radius:18px;box-shadow:0 20px 60px rgba(0,0,0,.25);display:flex;flex-direction:column;overflow:hidden;z-index:2147483000;font-family:' + CFG.fontFamily + ';color:var(--ijv-secondary);transform:translateY(20px);opacity:0;pointer-events:none;transition:transform .25s ease,opacity .2s ease}',
+    '.ijv-root.ijv-open{transform:translateY(0);opacity:1;pointer-events:auto}',
+    '.ijv-head{background:var(--ijv-primary);color:#fff;padding:14px 16px;display:flex;align-items:center;gap:12px}',
+    '.ijv-head img{height:44px;width:auto;background:#fff;border-radius:10px;padding:6px 10px;flex-shrink:0;display:block}',
+    '.ijv-head .ijv-title{font-weight:700;font-size:15px;line-height:1.2}',
+    '.ijv-head .ijv-sub{font-size:12px;opacity:.85}',
+    '.ijv-head .ijv-actions{margin-left:auto;display:flex;gap:6px}',
+    '.ijv-head button{background:rgba(255,255,255,.15);border:0;color:#fff;width:30px;height:30px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:15px}',
+    '.ijv-head button:hover{background:rgba(255,255,255,.28)}',
+    '.ijv-msgs{flex:1;overflow-y:auto;padding:16px;background:#FAFAFA;display:flex;flex-direction:column;gap:10px;scroll-behavior:smooth}',
+    '.ijv-msg{max-width:84%;padding:10px 13px;border-radius:14px;font-size:14px;line-height:1.45;word-wrap:break-word}',
+    '.ijv-msg p{margin:0 0 6px}.ijv-msg p:last-child{margin:0}',
+    '.ijv-msg ul{margin:4px 0 4px 18px;padding:0}.ijv-msg li{margin:2px 0}',
+    '.ijv-msg a{color:var(--ijv-primary);text-decoration:underline}',
+    '.ijv-msg code{background:rgba(0,0,0,.08);padding:1px 5px;border-radius:4px;font-size:13px}',
+    '.ijv-msg img{max-width:1.2em!important;max-height:1.2em!important;display:inline-block!important;vertical-align:text-bottom!important}',
+    '.ijv-bot{align-self:flex-start;background:#fff;border:1px solid #E8E8E8;border-top-left-radius:4px;color:var(--ijv-secondary)}',
+    '.ijv-user{align-self:flex-end;background:var(--ijv-primary);color:#fff;border-top-right-radius:4px}',
+    '.ijv-user a{color:#fff}',
+    '.ijv-typing{align-self:flex-start;display:flex;gap:4px;padding:10px 14px;background:#fff;border:1px solid #E8E8E8;border-radius:14px;border-top-left-radius:4px}',
+    '.ijv-typing span{width:7px;height:7px;background:var(--ijv-primary);border-radius:50%;opacity:.4;animation:ijvBlink 1.2s infinite}',
+    '.ijv-typing span:nth-child(2){animation-delay:.2s}.ijv-typing span:nth-child(3){animation-delay:.4s}',
+    '@keyframes ijvBlink{0%,80%,100%{opacity:.3;transform:translateY(0)}40%{opacity:1;transform:translateY(-3px)}}',
+    '.ijv-cta{display:flex;gap:8px;flex-wrap:wrap;margin:4px 0 6px}',
+    '.ijv-pill{background:var(--ijv-accent);color:var(--ijv-primary);border:1px solid rgba(0,0,0,.08);padding:6px 12px;border-radius:999px;font-size:12.5px;cursor:pointer;font-weight:600;transition:all .15s;font-family:inherit}',
+    '.ijv-pill:hover{background:var(--ijv-primary);color:#fff;border-color:var(--ijv-primary)}',
+    '.ijv-form{background:#fff;border:1px solid #E8E8E8;border-radius:12px;padding:14px;margin:8px 0;display:flex;flex-direction:column;gap:8px;align-self:stretch}',
+    '.ijv-form h4{margin:0 0 4px;font-size:14px;color:var(--ijv-secondary)}',
+    '.ijv-form input,.ijv-form textarea{width:100%;padding:9px 11px;border:1px solid #D8D8D8;border-radius:8px;font-size:13.5px;font-family:inherit;color:var(--ijv-secondary);background:#fff}',
+    '.ijv-form input:focus,.ijv-form textarea:focus{outline:none;border-color:var(--ijv-primary)}',
+    '.ijv-form button{background:var(--ijv-primary);color:#fff;border:0;padding:10px;border-radius:8px;font-weight:600;cursor:pointer;font-size:13.5px;font-family:inherit}',
+    '.ijv-form button:disabled{opacity:.6;cursor:wait}',
+    '.ijv-form .ijv-hp{display:none!important}',
+    '.ijv-form .ijv-legal{margin:0;font-size:10.5px;line-height:1.45;color:#8a8a8a}',
+    '.ijv-form .ijv-legal a{color:var(--ijv-primary);text-decoration:underline}',
+    '.ijv-cal{background:linear-gradient(135deg,var(--ijv-primary),var(--ijv-secondary));border-radius:12px;padding:16px;margin:8px 0;align-self:stretch;color:#fff}',
+    '.ijv-cal p{margin:0 0 10px;font-size:13.5px;line-height:1.45}',
+    '.ijv-cal a{display:inline-block;background:#fff;color:var(--ijv-primary);font-weight:700;padding:9px 16px;border-radius:8px;text-decoration:none;font-size:13.5px}',
+    '.ijv-input{display:flex;gap:8px;padding:12px;border-top:1px solid #E8E8E8;background:#fff;align-items:flex-end}',
+    '.ijv-input textarea{flex:1;border:1px solid #D8D8D8;border-radius:12px;padding:10px 12px;font-family:inherit;font-size:14px;resize:none;max-height:100px;min-height:40px;color:var(--ijv-secondary)}',
+    '.ijv-input textarea:focus{outline:none;border-color:var(--ijv-primary)}',
+    '.ijv-input button{background:var(--ijv-primary);color:#fff;border:0;width:40px;height:40px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0}',
+    '.ijv-input button:disabled{opacity:.5;cursor:not-allowed}',
+    '.ijv-input button svg{width:18px;height:18px;fill:#fff}',
+    '.ijv-foot{padding:8px 12px 10px;background:#fff;border-top:1px solid #E8E8E8;text-align:center;font-size:10.5px;color:#8a8a8a;line-height:1.5}',
+    '.ijv-foot a{color:var(--ijv-primary);text-decoration:none;font-weight:600}',
+    '.ijv-foot a:hover{text-decoration:underline}',
+    '.ijv-foot .ijv-foot-powered{display:block;margin-top:3px;font-size:10px;color:#9a9a9a}',
+    '.ijv-foot .ijv-foot-powered a{color:#9a9a9a;font-weight:500}',
+    '.ijv-toast{position:absolute;top:70px;left:50%;transform:translateX(-50%);background:var(--ijv-secondary);color:#fff;padding:8px 14px;border-radius:8px;font-size:12.5px;opacity:0;transition:opacity .2s;pointer-events:none}',
+    '.ijv-toast.ijv-show{opacity:.95}',
+    '@media (max-width:480px){.ijv-root{width:calc(100vw - 16px);height:calc(100vh - 90px);bottom:80px;right:8px}.ijv-launcher{bottom:16px;right:16px;height:54px;padding:0 18px}.ijv-launcher img{height:32px}}'
+  ].join('');
+
+  /* ---------------- Render de la UI ---------------- */
+  var styleEl = document.createElement('style');
+  styleEl.textContent = CSS;
+  document.head.appendChild(styleEl);
+
+  var launcher = document.createElement('button');
+  launcher.className = 'ijv-launcher';
+  launcher.setAttribute('aria-label', 'Abrir chat ' + CFG.clientName);
+  launcher.innerHTML = '<img src="' + escapeHtml(CFG.logoUrl) + '" alt="' + escapeHtml(CFG.clientName) + '" />';
+  document.body.appendChild(launcher);
+
+  var root = document.createElement('div');
+  root.className = 'ijv-root';
+  root.setAttribute('role', 'dialog');
+  root.setAttribute('aria-label', 'Chat de ' + CFG.clientName);
+  root.innerHTML =
+    '<div class="ijv-head">' +
+      '<img src="' + escapeHtml(CFG.logoUrl) + '" alt="' + escapeHtml(CFG.clientName) + '" />' +
+      '<div>' +
+        '<div class="ijv-title">' + escapeHtml(CFG.clientName) + '</div>' +
+        '<div class="ijv-sub">' + escapeHtml(CFG.agentName) + ' · ' + escapeHtml(CFG.headerSubtitle) + '</div>' +
+      '</div>' +
+      '<div class="ijv-actions">' +
+        '<button type="button" class="ijv-reset" aria-label="Reiniciar conversación" title="Nueva conversación">⟳</button>' +
+        '<button type="button" class="ijv-close" aria-label="Cerrar chat" title="Cerrar">✕</button>' +
+      '</div>' +
+      '<div class="ijv-toast">Conversación reiniciada</div>' +
+    '</div>' +
+    '<div class="ijv-msgs" aria-live="polite" aria-atomic="false"></div>' +
+    '<div class="ijv-input">' +
+      '<textarea rows="1" maxlength="2000" placeholder="Escribe tu mensaje…" aria-label="Escribe tu mensaje"></textarea>' +
+      '<button type="button" class="ijv-send" aria-label="Enviar">' +
+        '<svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>' +
+      '</button>' +
+    '</div>' +
+    '<div class="ijv-foot">' +
+      'Al usar este chat aceptas la <a href="' + escapeHtml(CFG.privacyUrl) + '" target="_blank" rel="noopener">política de privacidad</a> de ' + escapeHtml(CFG.clientName) + '.' +
+      '<span class="ijv-foot-powered"><a href="https://ijvagency.com/" target="_blank" rel="noopener">Powered by IJV</a></span>' +
+    '</div>';
+  document.body.appendChild(root);
+
+  /* Logo con fallback: si la URL del logo falla (típico en demos con dominio
+   * ficticio, o si el sitio del cliente mueve el archivo), el launcher cae a un
+   * ícono de chat y el header oculta la imagen rota — nunca se ve un img roto. */
+  var CHAT_ICON = '<svg viewBox="0 0 24 24" width="30" height="30" fill="currentColor" aria-hidden="true"><path d="M12 3C6.48 3 2 6.94 2 11.5c0 2.3 1.13 4.38 2.97 5.88L4 21l4.02-1.6c1.2.38 2.5.6 3.98.6 5.52 0 10-3.94 10-8.5S17.52 3 12 3z"/></svg>';
+  var lImg = launcher.querySelector('img');
+  if (lImg) {
+    var lFallback = function () { launcher.innerHTML = CHAT_ICON; };
+    lImg.onerror = lFallback;
+    if (lImg.complete && lImg.naturalWidth === 0) lFallback();
+  }
+  var hImg = root.querySelector('.ijv-head img');
+  if (hImg) {
+    var hFallback = function () { hImg.style.display = 'none'; };
+    hImg.onerror = hFallback;
+    if (hImg.complete && hImg.naturalWidth === 0) hFallback();
+  }
+
+  var $msgs  = root.querySelector('.ijv-msgs');
+  var $input = root.querySelector('textarea');
+  var $send  = root.querySelector('.ijv-send');
+  var $close = root.querySelector('.ijv-close');
+  var $reset = root.querySelector('.ijv-reset');
+  var $toast = root.querySelector('.ijv-toast');
+
+  var isOpen = false;
+  var isBusy = false;
+  var welcomed = false;
+
+  /* Regla #19: rAF obligatorio — sin él Safari/iOS deja el scroll anclado
+   * arriba mientras el bot escribe. */
+  function scrollToBottom() {
+    $msgs.scrollTop = $msgs.scrollHeight;
+    if (typeof requestAnimationFrame === 'function') {
+      requestAnimationFrame(function () { $msgs.scrollTop = $msgs.scrollHeight; });
+    }
+  }
+  function showToast(t) {
+    $toast.textContent = t;
+    $toast.classList.add('ijv-show');
+    setTimeout(function () { $toast.classList.remove('ijv-show'); }, 1800);
+  }
+  function pushUser(text, opts) {
+    var div = document.createElement('div');
+    div.className = 'ijv-msg ijv-user';
+    div.textContent = text;
+    $msgs.appendChild(div);
+    scrollToBottom();
+    if (!opts || !opts.skipSave) saveMessage('user', text);
+  }
+  function pushBot(text, opts) {
+    opts = opts || {};
+    var div = document.createElement('div');
+    div.className = 'ijv-msg ijv-bot';
+    $msgs.appendChild(div);
+    if (!opts.skipSave) saveMessage('bot', text);
+    if (CFG.typewriter && !opts.instant) {
+      typewrite(div, text);
+    } else {
+      div.innerHTML = parseMd(text);
+      scrollToBottom();
+    }
+    return div;
+  }
+  /* Typewriter: re-parsea markdown en cada step y scrollea con rAF (regla #19) */
+  function typewrite(div, fullText) {
+    var i = 0;
+    var step = Math.max(1, Math.round(CFG.typewriterCps / 30));
+    var timer = setInterval(function () {
+      i += step;
+      if (i >= fullText.length) {
+        clearInterval(timer);
+        div.innerHTML = parseMd(fullText);
+        scrollToBottom();
+        return;
+      }
+      div.innerHTML = parseMd(fullText.slice(0, i));
+      scrollToBottom();
+    }, 33);
+  }
+  function pushCTA(buttons) {
+    var row = document.createElement('div');
+    row.className = 'ijv-cta';
+    buttons.forEach(function (b) {
+      var p = document.createElement('button');
+      p.type = 'button';
+      p.className = 'ijv-pill';
+      p.textContent = b.label;
+      p.addEventListener('click', b.onClick);
+      row.appendChild(p);
+    });
+    $msgs.appendChild(row);
+    scrollToBottom();
+    return row;
+  }
+  function showTyping() {
+    var t = document.createElement('div');
+    t.className = 'ijv-typing';
+    t.innerHTML = '<span></span><span></span><span></span>';
+    $msgs.appendChild(t);
+    scrollToBottom();
+    return t;
+  }
+  function removeEl(el) { if (el && el.parentNode) el.parentNode.removeChild(el); }
+
+  /* ---------------- Call al webhook del agente ---------------- */
+  function callAgent(message, attempt) {
+    attempt = attempt || 0;
+    var ctrl = new AbortController();
+    var timer = setTimeout(function () { ctrl.abort(); }, CFG.timeoutMs);
+    return fetch(CFG.webhook, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        message: message,
+        sessionId: getSessionId(),
+        origin: window.location.origin,
+        channel: 'web'
+      }),
+      signal: ctrl.signal
+    })
+    .then(function (r) {
+      clearTimeout(timer);
+      if (!r.ok) throw new Error('HTTP ' + r.status);
+      return r.json();
+    })
+    .catch(function (err) {
+      clearTimeout(timer);
+      if (attempt < CFG.maxRetries) return callAgent(message, attempt + 1);
+      throw err;
+    });
+  }
+
+  /* ---------------- Lead form (honeypot anti-bot) ---------------- */
+  function showLeadForm(prefill) {
+    if ($msgs.querySelector('.ijv-form')) { scrollToBottom(); return; }
+    prefill = prefill || {};
+    var form = document.createElement('form');
+    form.className = 'ijv-form';
+    form.innerHTML =
+      '<h4>Déjanos tus datos y te contactamos</h4>' +
+      '<input type="text" name="nombre" placeholder="Nombre completo *" required value="' + escapeHtml(prefill.nombre || '') + '">' +
+      '<input type="email" name="email" placeholder="Correo electrónico *" required value="' + escapeHtml(prefill.email || '') + '">' +
+      '<input type="tel" name="telefono" placeholder="Teléfono / WhatsApp (opcional)" value="' + escapeHtml(prefill.telefono || '') + '">' +
+      '<textarea name="consulta" rows="2" placeholder="Cuéntanos brevemente (opcional)"></textarea>' +
+      '<input type="text" name="hp" class="ijv-hp" tabindex="-1" autocomplete="off">' +
+      /* Línea legal del formulario: el footer del chat enlaza la política, pero el
+       * formulario es donde el usuario ENTREGA sus datos — ahí tiene que estar el
+       * enlace (regla #14, misma lógica) y el recordatorio de qué NO mandar por
+       * este medio. La segunda frase se ajusta al vertical: un prestador de salud
+       * (legal.datos_salud) pide explícitamente no enviar estudios clínicos. */
+      '<p class="ijv-legal">Al enviar aceptas el tratamiento de tus datos conforme al ' +
+        '<a href="' + escapeHtml(CFG.privacyUrl) + '" target="_blank" rel="noopener">aviso de privacidad</a>. ' +
+        'No compartas por este medio información sensible ni documentos personales.</p>' +
+      '<button type="submit">Enviar</button>';
+    $msgs.appendChild(form);
+    scrollToBottom();
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var btn = form.querySelector('button[type="submit"]');
+      btn.disabled = true;
+      btn.textContent = 'Enviando…';
+      var fd = new FormData(form);
+      fetch(CFG.leadsWebhook, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          nombre: fd.get('nombre'),
+          email: fd.get('email'),
+          telefono: fd.get('telefono'),
+          consulta: fd.get('consulta'),
+          hp: fd.get('hp'),
+          session_id: getSessionId(),
+          origin: window.location.origin
+        })
+      })
+      .then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r; })
+      .then(function () {
+        removeEl(form);
+        pushBot('¡Listo! Recibimos tus datos. El equipo de ' + CFG.clientName + ' te contacta muy pronto.', { instant: true });
+        afterLeadCTA();
+      })
+      .catch(function () {
+        btn.disabled = false;
+        btn.textContent = 'Reintentar';
+        pushBot('Hubo un problema al enviar. Por favor intenta de nuevo.', { instant: true });
+      });
+    });
+  }
+
+  /* Regla #20: el usuario que dejó datos está CALIENTE — no cerrar con
+   * "te escribimos pronto" seco: CTA inmediato a Calendly / WhatsApp. */
+  function afterLeadCTA() {
+
+
+  }
+
+  /* ---------------- Intent helpers ---------------- */
+
+  function wantsContactForm(text) {
+    return /\b(lead|llama(me|r)|mis datos|dejo mis datos|d[ée]jame datos|quiero que me contacten)\b/i.test(text || '');
+  }
+
+  /* ---------------- Envío de mensajes ---------------- */
+  function send(text) {
+    text = (text || '').trim();
+    if (!text || isBusy) return;
+    pushUser(text);
+    $input.value = '';
+    autoSize();
+    isBusy = true;
+    $send.disabled = true;
+
+    var typing = showTyping();
+
+    callAgent(text)
+      .then(function (data) {
+        removeEl(typing);
+        var reply = (data && (data.output || data.response || data.text)) || 'Disculpa, no pude procesar tu mensaje. ¿Puedes reformularlo?';
+        pushBot(reply);
+
+        var showsForm = (data && (data.lead_intent || data.showForm)) || wantsContactForm(text);
+        var wantsContactBtn = /\b(equipo|contactar|asesor|coordinar)\b/i.test(reply);
+        var ctas = [];
+
+        /* Regla #18: botón persistente, NUNCA auto-open que tape la respuesta */
+        if (wantsContactBtn && !showsForm) {
+          ctas.push({ label: 'Contactar al equipo', onClick: function () { showLeadForm({ nombre: data && data.nombre, email: data && data.email, telefono: data && data.telefono }); } });
+        }
+        if (ctas.length) pushCTA(ctas);
+        if (showsForm) showLeadForm({ nombre: data && data.nombre, email: data && data.email, telefono: data && data.telefono });
+      })
+      .catch(function () {
+        removeEl(typing);
+        pushBot('Ups, tuve un problema de conexión. ¿Puedes intentarlo de nuevo?', { instant: true });
+
+      })
+      .then(function () {
+        isBusy = false;
+        $send.disabled = false;
+        $input.focus();
+      });
+  }
+
+  /* ---------------- Auto-resize textarea ---------------- */
+  function autoSize() {
+    $input.style.height = 'auto';
+    $input.style.height = Math.min($input.scrollHeight, 100) + 'px';
+  }
+  $input.addEventListener('input', autoSize);
+  $input.addEventListener('keydown', function (e) {
+    if (e.key === 'Enter' && !e.shiftKey) {
+      e.preventDefault();
+      send($input.value);
+    }
+  });
+  $send.addEventListener('click', function () { send($input.value); });
+
+  /* ---------------- Welcome + quick buttons ---------------- */
+  function showWelcome() {
+    /* El welcome NO pasa por send(): jamás dispara detección de lead (regla #18) */
+    pushBot(CFG.welcomeMessage, { instant: true, skipSave: true });
+    if (QUICK_BUTTONS.length) {
+      pushCTA(QUICK_BUTTONS.map(function (b) {
+        return { label: b.label, onClick: function () { send(b.mensaje); } };
+      }));
+    }
+  }
+  function restoreHistory() {
+    var hist = loadMessages();
+    if (!hist.length) return false;
+    hist.forEach(function (m) {
+      if (m.role === 'user') pushUser(m.text, { skipSave: true });
+      else pushBot(m.text, { instant: true, skipSave: true });
+    });
+    return true;
+  }
+
+  /* ---------------- Open / close / reset ---------------- */
+  function openChat() {
+    isOpen = true;
+    root.classList.add('ijv-open');
+    launcher.style.display = 'none';
+    if (!welcomed) {
+      welcomed = true;
+      getSessionId(); /* aplica TTL antes de restaurar */
+      if (!restoreHistory()) showWelcome();
+    }
+    setTimeout(function () { $input.focus(); }, 200);
+  }
+  function closeChat() {
+    isOpen = false;
+    root.classList.remove('ijv-open');
+    launcher.style.display = 'flex';
+  }
+  launcher.addEventListener('click', openChat);
+  $close.addEventListener('click', closeChat);
+  $reset.addEventListener('click', function () {
+    resetSession();
+    $msgs.innerHTML = '';
+    showToast('Conversación reiniciada');
+    setTimeout(showWelcome, 250);
+  });
+
+  /* ---------------- API pública opcional ---------------- */
+  window.shopimaxAgent = {
+    open:  openChat,
+    close: closeChat,
+    reset: function () { $reset.click(); },
+    send:  send
+  };
+})();
+
+  </script>
+</body>
+</html>
